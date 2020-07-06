@@ -15,7 +15,7 @@ For my assignment I utilized the command pattern which is used to encapsulate a 
 
 In the case of my console application, the IOrder Interface, along with the BuyStock and SellStock classes, are utilizing the COMMAND PATTERN in order to carry out the operations of from the client Stock and Broker classes. Allowing us to queue/log those commands and allows us to parameterize the methods using the IOrder interface in the Broker class.
 
-#Requirements
+# Requirements
 
 1) Unit tests
 2) 100% code coverage
