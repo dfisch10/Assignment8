@@ -13,7 +13,7 @@ In this assignment we were tasked with looking up a programming design pattern f
 
 For my assignment I utilized the command pattern which is used to encapsulate a request/command as an object, which allows you to paramterize clients with various requests/commands. As well as being able to handle queue/log requests, and allows you to do other typically undoable operations. 
 
-In the case of my console application, the IOrder Interface, along with the BuyStock and SellStock classes, are utilizing a command pattern in order to carry out the operations of from the client Stock and Broker classes. Allowing us to queue/log those commands and allows us to parameterize the methods using the IOrder interface in the Broker class.
+In the case of my console application, the IOrder Interface, along with the BuyStock and SellStock classes, are utilizing the COMMAND PATTERN in order to carry out the operations of from the client Stock and Broker classes. Allowing us to queue/log those commands and allows us to parameterize the methods using the IOrder interface in the Broker class.
 
 #Requirements
 
