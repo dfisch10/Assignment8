@@ -10,6 +10,7 @@ namespace Assignment8.tests
     public class UnitTest1
     {
         #region Stock Class Tests
+
         [Fact]
         public void Buy_InitializeAStockAndEnsureOutput_ReturnsValid()
         {
@@ -25,9 +26,24 @@ namespace Assignment8.tests
 
             Assert.Equal("Stock [ Name: ABC, Quantity: 10 ] sold", sut.Sell());
         }
+
+        [Fact]
+        public void BuyAndSell_InsertingANullIntoAStockObjectsName_ReturnsValid()
+        {
+            var sut = new Stock()
+            {
+                Name = null,
+            };
+
+            Assert.Null(sut.Name);
+            Assert.Equal("Stock [ Name: , Quantity: 10 ] sold", sut.Sell());
+            Assert.Equal("Stock [ Name: , Quantity: 10 ] bought", sut.Buy());
+        }
+
         #endregion
 
-        #region BuyStock Class Test
+        #region BuyStock Class Tests
+
         [Fact]
         public void BuyStock_ImplementingABuyStockObjectAndTestingExecute_ReturnsValid()
         {
@@ -36,9 +52,11 @@ namespace Assignment8.tests
 
             Assert.Equal(sut.Execute(), stock.Buy());
         }
+
         #endregion
 
-        #region SellStock Class Test
+        #region SellStock Class Tests
+
         [Fact]
         public void SellStock_ImplementingASellStockObjectAndTestingExecute_ReturnsValid()
         {
@@ -47,9 +65,11 @@ namespace Assignment8.tests
 
             Assert.Equal(sut.Execute(), stock.Sell());
         }
+
         #endregion
 
-        #region Broker Class Test
+        #region Broker Class Tests
+
         [Fact]
         public void PlaceOrders_InitializingABrokerAndPassingBuyStockValues_ReturnsValid()
         {
@@ -77,6 +97,23 @@ namespace Assignment8.tests
 
             Assert.Equal(stock.Sell() + "\n", sut.PlaceOrders());
         }
+
+        [Fact]
+        public void PlaceOrders_EnteringInNullValuesForNullChecking_ReturnsValid()
+        {
+            
+            Broker sut = new Broker();
+            var stock = new Stock();
+            var sellStock = new SellStock(stock);
+            sut.OrderList = null;
+
+            sut.TakeOrder(sellStock);
+            sut.TakeOrder(sellStock);
+            sut.RemoveOrder(sellStock);
+
+            Assert.Equal("You may not place an order on an empty/null list, please take an order and try again.", sut.PlaceOrders());
+        }
+
         #endregion
     }
 }
