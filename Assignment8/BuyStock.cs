@@ -25,11 +25,7 @@ namespace Assignment8
         /// <param name="abcStock">The stock object that is passed into the constructor to become a "buystock".</param>
         public BuyStock(Stock abcStock)
         {
-            if(abcStock is null)
-            {
-                Console.WriteLine("You may not have a null stock, please enter in a stock and try again.");
-            }
-            this.abcStock = abcStock;
+            this.abcStock = abcStock ?? throw new ArgumentNullException(nameof(abcStock)); ;
         }
 
         #endregion

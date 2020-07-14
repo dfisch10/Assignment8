@@ -12,7 +12,9 @@ namespace Assignment8
         /// <summary>
         /// Field for the quanity of the stock to be purchased or sold.
         /// </summary>
-        public int Quantity = 10;
+        public int Quantity = 10;   
+
+        public string stockOutPut { get; }
         #endregion
 
         #region Methods
